@@ -3,9 +3,7 @@ import { Heart, HeartPulse, Soup } from 'lucide-react'
 
 const getTwoValuesFromArray = (arr) => {
   return [arr[0] , arr[1]];
-}
-
-
+};
 
 const RecipeCard = ({recipe,bg,badge}) => {
 const healthLabels = getTwoValuesFromArray(recipe.healthLabels);
@@ -16,14 +14,14 @@ const addRecipeToFavourites = () => {
   const isREcipeAlreadyInFavourites = favourites.some((fav) => fav.label === recipe.label); 
   if (isREcipeAlreadyInFavourites){
     favourites = favourites.filter((fav) => fav.label === recipe.label);
-    setIsFavourite(false)
+    setIsFavourite(false);
     
   }else{
     favourites.push(recipe);
     setIsFavourite(true);
   }
 
-  localStorage.setItem('favourites',JSON.stringify(favourites));
+  localStorage.setItem("favourites", JSON.stringify(favourites));
 }
 
 

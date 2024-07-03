@@ -19,7 +19,7 @@ const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
           )}
         
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-          {favorites.map((recipe) => (
+           {favorites.map((recipe) => (
 						<RecipeCard key={recipe.label} recipe={recipe} {...getRandomColor()} />
 					))}
           </div>
