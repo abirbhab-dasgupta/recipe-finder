@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Heart, HeartPulse, Soup } from 'lucide-react'
+import { HeartPulse, Soup } from 'lucide-react'
 
 const getTwoValuesFromArray = (arr) => {
   return [arr[0] , arr[1]];
@@ -7,22 +7,6 @@ const getTwoValuesFromArray = (arr) => {
 
 const RecipeCard = ({recipe,bg,badge}) => {
 const healthLabels = getTwoValuesFromArray(recipe.healthLabels);
-const [isFavourite,setIsFavourite] = useState(localStorage.getItem('favourites')?.includes (recipe.label));
-
-const addRecipeToFavourites = () => {
-  let favourites  = JSON.parse(localStorage.getItem('favourites')) || [] ;
-  const isREcipeAlreadyInFavourites = favourites.some((fav) => fav.label === recipe.label); 
-  if (isREcipeAlreadyInFavourites){
-    favourites = favourites.filter((fav) => fav.label === recipe.label);
-    setIsFavourite(false);
-    
-  }else{
-    favourites.push(recipe);
-    setIsFavourite(true);
-  }
-
-  localStorage.setItem("favourites", JSON.stringify(favourites));
-}
 
 
   return (
@@ -43,16 +27,7 @@ const addRecipeToFavourites = () => {
           <div className='absolute bottom-2 left-2 bg-slate-700 rounded-full p-1 cursor-pointer flex items-center gap-1 text-sm'>
             <Soup size={15} /> {recipe.yield} Servings
           </div>
-          <div className='absolute top-1 right-4 bg-slate-700 rounded-full p-1 cursor-pointer'
-          onClick={(e) => {
-            e.preventDefault();
-            addRecipeToFavourites();
-          }}
           
-          >
-            {!isFavourite && <Heart size={20} className='hover:fill-red-500 hover:text-red-500' />}
-            {isFavourite && <Heart size={20} className='fill-red-500 hover:text-red-500' />}
-          </div>
           </a>
           <div className='flex mt-1 text-black '>
             <p className='font bold tracking-wide font-semibold'> {recipe.label} </p>

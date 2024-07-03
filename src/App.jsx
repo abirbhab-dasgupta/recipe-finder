@@ -2,7 +2,7 @@
 import { Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar";
 import Homepage from "./components/pages/Homepage";
-import FavouritePage from "./components/pages/FavouritePage";
+import HelpPage from "./components/pages/HelpPage";
 
 
 
@@ -13,7 +13,7 @@ function App() {
 			<Sidebar />
 			<Routes>
 				<Route path='/' element={<Homepage />} />
-				<Route path='/favourites' element={<FavouritePage />} />
+				<Route path='/help' element={<HelpPage />} />
 			</Routes>
 		</div>
 	);

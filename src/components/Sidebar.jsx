@@ -1,4 +1,4 @@
-import { Heart, Home } from 'lucide-react'
+import { Heart, Home, MessageCircleQuestion } from 'lucide-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -28,10 +28,11 @@ const DesktopSidebar = () => {
           <Home size={"24"}/>
           <span className='font-bold hidden md:block'>Home</span>
           </Link>
-          <Link className='flex gap-1' to={"/favourites"}>
-          <Heart size={"24"}/>
-          <span className='font-bold hidden md:block'>Favourites</span>
+          <Link className='flex gap-1' to={"/help"}>
+          <MessageCircleQuestion size={"24"}/>
+          <span className='font-bold hidden md:block'>Help</span>
           </Link>
+
         </ul>
         <ul></ul>
         <ul></ul>
@@ -47,8 +48,8 @@ const MobileSidebar = () =>{
     <Link to={"/"}>
 				<Home size={"24"} className='cursor-pointer' />
 			</Link>
-			<Link to={"/favourites"}>
-				<Heart size={"24"} className='cursor-pointer' />
+      <Link to={"/help"}>
+				<MessageCircleQuestion  size={"24"} className='cursor-pointer' />
 			</Link>
 
   </div>
